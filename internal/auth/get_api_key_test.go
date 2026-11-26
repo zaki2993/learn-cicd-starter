@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetAPIKey(t *testing.T) {
-	got := ""
+	got := "z"
 	exp := ""
 
 	if !reflect.DeepEqual(exp, got) {
