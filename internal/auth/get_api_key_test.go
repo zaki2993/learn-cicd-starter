@@ -1,15 +1,19 @@
 package auth
 
 import (
-	"reflect"
+	"net/http"
 	"testing"
 )
 
 func TestGetAPIKey(t *testing.T) {
-	got := ""
-	exp := ""
+	headers := http.Header{}
+	headers.Set("Authorization", "ApiKey abc123")
 
-	if !reflect.DeepEqual(exp, got) {
-		t.Fatalf("expected: %v, got: %v", exp, got)
+	got, err := GetAPIKey(headers)
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	if got != "abc123" {
+		t.Fatalf("expected: abc123, got: %v", got)
 	}
 }
