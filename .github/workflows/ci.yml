@@ -43,9 +43,3 @@ jobs:
         run: staticcheck ./...
       - name: Run gosec
         run: gosec ./...
-
-
-
-    
-
-
